@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS事件demo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .row {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            border-bottom: 2px solid #999999;
+        }
+
+        .left {
+            width: 50%;
+            height: 100vh;
+            border-right: 2px solid #999999;
+            overflow: hidden;
+        }
+
+        .right {
+            width: 50%;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;            
+        }
+
+        .left__outside {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #666666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .left__middle {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #666666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left__inside {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #666666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        p > span {
+            margin: 0 10px;
+            font-size: 24px;
+        }
+        .all {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="left" id="one">
+                <h1>JavaScript事件传递--冒泡事件</h1>
+                <p>&nbsp;</p>
+                <div class="left__outside">
+                    <div class="left__middle">
+                        <div class="left__inside">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right" id="two">
+                <h1>JavaScript事件传递--捕获事件</h1>
+                <p>&nbsp;</p>
+                <div class="left__outside">
+                    <div class="left__middle">
+                        <div class="left__inside">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="all">
+                <h1>JavaScript事件委托</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function add(id, text) {
+            let data = document.createElement('span')
+            let t = document.createTextNode(`${text}`);
+            data.appendChild(t);
+            let element = document.getElementById(id).querySelector('p');
+            element.appendChild(data);
+        }
+
+        function one() {
+            let target = document.querySelector('#one')
+            let a = target.querySelector('.left__outside')
+            let b = target.querySelector('.left__middle')
+            let c = target.querySelector('.left__inside')
+            a.addEventListener('click', () => {
+                add('one', 'out')
+            })
+            b.addEventListener('click', () => {
+                add('one', 'mid')
+            })
+            c.addEventListener('click', () => {
+                add('one', 'in')
+            })
+        }
+
+        function two() {
+            let target = document.querySelector('#two')
+            let a = target.querySelector('.left__outside')
+            let b = target.querySelector('.left__middle')
+            let c = target.querySelector('.left__inside')
+            a.addEventListener('click', () => {
+                add('two', 'out')
+            }, true)
+            b.addEventListener('click', () => {
+                add('two', 'mid')
+            }, true)
+            c.addEventListener('click', () => {
+                add('two', 'in')
+            }, true)
+        }
+
+        one()
+        two()
+    </script>
+</body>
+
+</html>
