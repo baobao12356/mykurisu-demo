@@ -35,7 +35,7 @@
             width: 50%;
             height: 100vh;
             box-sizing: border-box;
-            overflow: hidden;            
+            overflow: hidden;
         }
 
         .left__outside {
@@ -70,23 +70,42 @@
             text-align: center;
         }
 
-        p > span {
+        p>span {
             margin: 0 10px;
             font-size: 24px;
         }
+
         .all {
             width: 100%;
             height: 100vh;
+        }
+
+        .all__content {
+            width: 85vw;
+            display: flex;
+            overflow: hidden;
+            flex-wrap: wrap;
+            margin: 0 auto;
+        }
+
+        .item {
+            width: 5vw;
+            height: 5vw;
+            border: 1px solid powderblue;
+            border-radius: 4px;
+            margin: 5px;
+            flex-shrink: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+
         <div class="row">
             <div class="left" id="one">
-                <h1>JavaScript事件传递--冒泡事件</h1>
-                <p>&nbsp;</p>
+                <h1>①JavaScript事件传递--冒泡事件</h1>
+                <p>事件触发--</p>
                 <div class="left__outside">
                     <div class="left__middle">
                         <div class="left__inside">
@@ -96,8 +115,8 @@
                 </div>
             </div>
             <div class="right" id="two">
-                <h1>JavaScript事件传递--捕获事件</h1>
-                <p>&nbsp;</p>
+                <h1>②JavaScript事件传递--捕获事件</h1>
+                <p>事件触发--</p>
                 <div class="left__outside">
                     <div class="left__middle">
                         <div class="left__inside">
@@ -109,10 +128,117 @@
         </div>
 
         <div class="row">
+                <div class="left" id="three">
+                    <h1>③冒泡事件--禁止事件传递</h1>
+                    <p>事件触发--</p>
+                    <div class="left__outside">
+                        <div class="left__middle">
+                            <div class="left__inside">
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right" id="four">
+                    <h1>④捕获事件--禁止事件传递</h1>
+                    <p>事件触发--</p>
+                    <div class="left__outside">
+                        <div class="left__middle">
+                            <div class="left__inside">
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="row">
             <div class="all">
                 <h1>JavaScript事件委托</h1>
+                <div class="all__content">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
             </div>
         </div>
+
     </div>
 
 
@@ -131,13 +257,13 @@
             let a = target.querySelector('.left__outside')
             let b = target.querySelector('.left__middle')
             let c = target.querySelector('.left__inside')
-            a.addEventListener('click', () => {
+            a.addEventListener('click', (e) => {
                 add('one', 'out')
             })
-            b.addEventListener('click', () => {
+            b.addEventListener('click', (e) => {
                 add('one', 'mid')
             })
-            c.addEventListener('click', () => {
+            c.addEventListener('click', (e) => {
                 add('one', 'in')
             })
         }
@@ -158,8 +284,58 @@
             }, true)
         }
 
+        function three() {
+            let target = document.querySelector('#three')
+            let a = target.querySelector('.left__outside')
+            let b = target.querySelector('.left__middle')
+            let c = target.querySelector('.left__inside')
+            a.addEventListener('click', (e) => {
+                add('three', 'out')
+                e.stopPropagation()
+            })
+            b.addEventListener('click', (e) => {
+                add('three', 'mid')
+                e.stopPropagation()
+            })
+            c.addEventListener('click', (e) => {
+                add('three', 'in')
+                e.stopPropagation()
+            })
+        }
+
+        function four() {
+            let target = document.querySelector('#four')
+            let a = target.querySelector('.left__outside')
+            let b = target.querySelector('.left__middle')
+            let c = target.querySelector('.left__inside')
+            a.addEventListener('click', (e) => {
+                add('four', 'out')
+                e.stopPropagation()
+            }, true)
+            b.addEventListener('click', (e) => {
+                add('four', 'mid')
+                e.stopPropagation()
+            }, true)
+            c.addEventListener('click', (e) => {
+                add('four', 'in')
+                e.stopPropagation()
+            }, true)
+        }
+
+        function weituo() {
+            let target = document.querySelector('.all__content')
+            target.addEventListener('click', (e) => {
+                if (e.target.className === 'item') {
+                    e.target.style.backgroundColor = '#eee'
+                }
+            })
+        }
+
         one()
         two()
+        three()
+        four()
+        weituo()
     </script>
 </body>
 
