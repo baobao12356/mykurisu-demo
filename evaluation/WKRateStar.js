@@ -1,6 +1,30 @@
 /**
  * Created by mykurisu on 2018/2/7.
  */
+/*
+那个啥  这里是SCSS
+.rate {
+  letter-spacing: 4px;
+  color: #FF9C00;
+  position: relative;
+  font-family: sans-serif;
+  display: inline-flex;
+  line-height: 1;
+  font-size: 20px;
+  .rate__bg {
+    position: relative;
+  }
+  .bg__realrate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width .5s;
+  }
+}
+*/
 import React from 'react'
 
 
